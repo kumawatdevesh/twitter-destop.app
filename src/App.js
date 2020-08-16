@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import Auth from './componentts/login/Auth';
+import Tweet from './componentts/tweets/Tweet';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
+
+  const[userToken, setUserToken] = useState();
+
+  let routes;
+
+  useEffect(() => {
+      setUserToken(props.getSignInReducers.success.data || JSON.parse(localStorage.getItem('userToken')));
+  }, [props.getSignInReducers.success]);
+
+  if(userToken) {
+    routes = (
+        <Switch>
+          <Route path="/tweets" component={Tweet} />
+          <Route path="*" component={Auth} />
+        </Switch>
+      )
+    }else {
+      routes = (
+        <Switch>
+          <Route exact path="/" exact component={Auth} />
+          <Route path="*" component={Auth} />
+        </Switch>
+      )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {routes}
+    </BrowserRouter>
   );
 }
 
-export default App;
+const mapStateToProps = ({ signInReducers }) => {
+
+  const { signin: { post: getSignInReducers }} = signInReducers;
+  return {
+      getSignInReducers
+  }
+};
+
+export default connect(mapStateToProps, null)(App);

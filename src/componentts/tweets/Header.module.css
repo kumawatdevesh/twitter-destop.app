@@ -1,0 +1,68 @@
+.header__parent__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2.5rem 0;
+}
+.header__left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.header__left > * {
+    margin-right: 2rem;
+}
+.header__left > input {
+    border-radius: 1.5rem;
+    outline: none;
+    border: 1px solid #eee;
+    padding: 0.5rem 0rem 0.5rem 3rem;
+}
+.search__icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    margin-right: -2rem;
+    z-index: 1;
+    font-size: 1.4rem;
+}
+.search__icon * > {
+    margin-left: 1rem;
+}
+.primary__heading {
+    color: #000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.filter__button {
+    padding: 0.1rem 1.5rem;
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration: none;
+    background-color: #f8f8f8;
+    border-radius: 2rem;
+}
+.header__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.status__button {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.2rem 1rem;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 2rem;
+}
+.status__button > a {
+    color: #000;
+    text-decoration: none;
+}
+.status__button > .status__icon {
+    color: green;
+}

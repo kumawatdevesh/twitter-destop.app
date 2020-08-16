@@ -1,0 +1,78 @@
+.parent__contanier {
+    display: flex;
+    justify-content: space-between;
+}
+.child__tweet__contanier {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: 22%;
+    margin-right: 2rem;
+}
+.child__tweet__details {
+    border: 1px solid hsl(15, 2%, 64%);
+    border: 0.2rem solid #dfdfdf;
+    border-radius: 0.7rem;
+    margin: 0 0 01rem;
+    padding: 0.5rem 1rem;
+}
+.child__tweet__details:active,
+.child__tweet__details:focus {
+    background-color: #eee;
+}
+.child__tweets__profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.child__tweets__profile__image {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 1rem;
+}
+.child__tweets__profile > .child__tweets__profile__image > img {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+}
+.tweet__no__icon {
+    display: flex;
+    justify-content: flex-start;
+}
+.tweet__no__icon  > p {
+    margin: 0;
+    font-size: 1.3rem;
+}
+.twitter__user__details { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    height: 7rem;
+    width: 16rem;
+}
+.twitter__user__details span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000;
+}
+.twitter__user__details > p {
+    font-size: 1.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.divider > h2 {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+ } 
+ 
+.divider > h2 > span { 
+    background:#fff; 
+    padding:0 10px; 
+ }
