@@ -34,7 +34,7 @@ const ParentTweet = (props) => {
                     <div className={styles.tweet__details__header}>
                         <div className={styles.user__details}>
                             <img src={tweet.user.profile_image_url} />
-                            <span>{tweet.user.name}</span>
+                            <span>{tweet.user.screen_name}</span>
                             <FontAwesomeIcon style={{color: 'green', margin: '0 0.5rem'}} className={styles.status__icon} icon={faCircle} /> 
                         </div> 
                         <div className={styles.tweet__room}>

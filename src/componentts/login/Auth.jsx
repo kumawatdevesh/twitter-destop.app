@@ -7,6 +7,7 @@ import styles from './Auth.module.css';
 
 const Auth = (props) => {
 
+    console.log(process.env.REACT_APP_CALLBACK_URL);
     const authHandler = (err, data) => {
         props.signIn(data.screen_name, data.user_id);
     };
@@ -29,9 +30,9 @@ const Auth = (props) => {
             <TwitterLogin
                 className={styles.login__button}
                 authCallback={authHandler}
-                consumerKey={'GOeke9UqbAzWwnFAoC79ZuDMT'}
-                consumerSecret={'sxUJWFIwceYOlvjWjKB3CAOthhlQPLjJf5hr6orKWzDULg5KQ7'}
-                callbackUrl={'http://localhost:3000/'}
+                consumerKey={`${process.env.REACT_APP_CONSUMER_KEY}`}
+                consumerSecret={`${process.env.REACT_APP_CONSUMER_SECRET}`}
+                callbackUrl={`${process.env.REACT_APP_CALLBACK_URL}`}
             />
             {signInUser()}
         </div>

@@ -2,7 +2,7 @@ import {POST_SIGNIN_LOADING, POST_SIGNIN_SUCCESS, POST_SIGNIN_FAILURE, POST_SIGN
 
 export const postSignIn = (name, user_id) => async(dispatch) => {
     dispatch({type: POST_SIGNIN_LOADING, payload: null});
-    fetch('http://localhost:5000/api/users/login', {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/users/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -13,6 +13,7 @@ export const postSignIn = (name, user_id) => async(dispatch) => {
         return res.json();
     })
     .then(res => {
+        console.log('sucess login', res);
         dispatch({type: POST_SIGNIN_SUCCESS, payload: res});
     })
     .catch(err => {

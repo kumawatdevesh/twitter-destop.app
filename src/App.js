@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Auth from './componentts/login/Auth';
-import Tweet from './componentts/tweets/Tweet';
+import React, { useEffect, useState, Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
+
+const Auth = React.lazy(() => import('./componentts/login/Auth'));
+const Tweet = React.lazy(() => import('./componentts/tweets/Tweet'));
 
 function App(props) {
 
@@ -33,7 +34,7 @@ function App(props) {
 
   return (
     <BrowserRouter>
-      {routes}
+      <main><Suspense fallback={<div>Loading...</div>}>{routes}</Suspense></main>
     </BrowserRouter>
   );
 }

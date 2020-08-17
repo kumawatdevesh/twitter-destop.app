@@ -3,7 +3,7 @@ import {GET_TWEETS_LOADING, GET_TWEETS_SUCCESS, GET_TWEETS_FAILURE, GET_TWEETS_R
 export const getTweets = () => async(dispatch) => {
     const userToken = JSON.parse(localStorage.getItem('userToken'));
     dispatch({type: GET_TWEETS_LOADING, payload: null});
-    fetch('http://localhost:5000/api/tweets/get-tweets', {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/tweets/get-tweets`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export const getTweets = () => async(dispatch) => {
 export const postTweets = (data) => async(dispatch) => {
     const userToken = JSON.parse(localStorage.getItem('userToken'));
     dispatch({type: POST_TWEETS_LOADING, payload: null});
-    fetch('http://localhost:5000/api/tweets/post-tweets', {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/tweets/post-tweets`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
