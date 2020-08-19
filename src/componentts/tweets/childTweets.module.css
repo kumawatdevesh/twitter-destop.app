@@ -1,4 +1,4 @@
-.parent__contanier {
+.child__parent__contanier {
     display: flex;
     justify-content: space-between;
 }
@@ -8,7 +8,9 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-basis: 22%;
-    margin-right: 2rem;
+    margin-right: 1rem;
+    overflow-y: scroll;
+    max-height: 100vh;
 }
 .child__tweet__details {
     border: 1px solid hsl(15, 2%, 64%);

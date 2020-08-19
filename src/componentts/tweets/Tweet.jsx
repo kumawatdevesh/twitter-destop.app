@@ -17,12 +17,15 @@ const Tweet = (props) => {
         if(getTweetReducers.loading) {
             return <h1>Loading ...</h1>
         }else if(getTweetReducers.success.ok) {
+            if(getTweetReducers.success.data.length === 0) {
+                window.location.reload();
+            }
             return <ChildTweets child_tweets={getTweetReducers.success.data} />
         }else if(getTweetReducers.failure.error) {
             return <h1>{getTweetReducers.failure.msg}</h1>
         }
     };      
-
+    // console.log('this is main tweet', props.getTweetReducers);
     return (
         <div className={styles.container}>
             <Header />

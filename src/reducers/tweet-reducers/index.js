@@ -2,7 +2,7 @@ import { GET_TWEETS_LOADING, GET_TWEETS_SUCCESS, GET_TWEETS_FAILURE, GET_TWEETS_
 
 const INITIAL_STATE = {
 	tweet: {
-		get: {
+		  get: {
             loading: false,
             reset: false,
             success: {
@@ -177,8 +177,8 @@ const getTweetsReducers = (state=INITIAL_STATE, action) => {
                 },
             },
         }
+        default: return state;
     }
-    return INITIAL_STATE;
 }
 
 export default getTweetsReducers;

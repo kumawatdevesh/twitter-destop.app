@@ -48,6 +48,9 @@
 }
 .main__tweet__placeholder {
     padding: 2rem 5rem;
+    overflow-y: scroll;
+    max-height: 100vh;
+    z-index: 1;
 }
 .main__tweet__placeholder > p {
     font-size: 1.5rem;

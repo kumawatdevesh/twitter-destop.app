@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
 
@@ -20,14 +20,14 @@ function App(props) {
     routes = (
         <Switch>
           <Route path="/tweets" component={Tweet} />
-          <Route path="*" component={Auth} />
+          <Redirect to="/tweets" />
         </Switch>
       )
     }else {
       routes = (
         <Switch>
           <Route exact path="/" exact component={Auth} />
-          <Route path="*" component={Auth} />
+          <Redirect to="/" />
         </Switch>
       )
   }

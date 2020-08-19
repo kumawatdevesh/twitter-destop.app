@@ -1,4 +1,4 @@
-import {POST_SIGNIN_LOADING, POST_SIGNIN_SUCCESS, POST_SIGNIN_FAILURE, POST_SIGNIN_RESET} from '../types';
+import {POST_SIGNIN_LOADING, POST_SIGNIN_SUCCESS, POST_SIGNIN_FAILURE } from '../types';
 
 export const postSignIn = (name, user_id) => async(dispatch) => {
     dispatch({type: POST_SIGNIN_LOADING, payload: null});
@@ -12,8 +12,7 @@ export const postSignIn = (name, user_id) => async(dispatch) => {
     .then(res => {
         return res.json();
     })
-    .then(res => {
-        console.log('sucess login', res);
+    .then(res => { 
         dispatch({type: POST_SIGNIN_SUCCESS, payload: res});
     })
     .catch(err => {

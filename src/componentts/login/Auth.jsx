@@ -1,15 +1,17 @@
 import React from 'react';
 import TwitterLogin from "react-twitter-login";
 import * as actioncreators from '../../actions/signin-action/index';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styles from './Auth.module.css';
 
 const Auth = (props) => {
 
-    console.log(process.env.REACT_APP_CALLBACK_URL);
     const authHandler = (err, data) => {
-        props.signIn(data.screen_name, data.user_id);
+        console.log(data, err);
+        if(data) {
+            props.signIn(data.screen_name, data.user_id);
+        }
     };
 
     const signInUser = () => {
@@ -17,8 +19,8 @@ const Auth = (props) => {
         if(getSignInReducers.loading) {
             return <h1>Loading ...</h1>
         }else if(getSignInReducers.success.ok) {
-            const { token } = getSignInReducers.success.data;
-            localStorage.setItem('userToken', JSON.stringify(token));
+            const { token, user: { name } } = getSignInReducers.success.data;
+            localStorage.setItem('userToken', JSON.stringify({token: token, name}));
             return props.history.push('/tweets');
         }else if(getSignInReducers.failure.error) {
             return <h1>{getSignInReducers.failure.msg}</h1>
